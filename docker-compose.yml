@@ -1,0 +1,15 @@
+version: "3"
+services:
+  beer-database:
+    image: mongo:3.2.4
+    container_name: "beer-database"
+    ports:
+      - 27017:27017
+    command: --smallfiles
+  beer-api:
+    build: .
+    container_name: "beer-api"
+    ports:
+      - 9091:8080
+    links:
+      - beer-database
