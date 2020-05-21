@@ -5,11 +5,13 @@ services:
     container_name: "beer-database"
     ports:
       - 27017:27017
-    command: --smallfiles
+    command: --smallfiles --noauth
   beer-api:
     build: .
     container_name: "beer-api"
+    environment:
+      - SPRING_DATA_MONGODB_HOST=beer-database
     ports:
-      - 9091:8080
+      - 8080:8080
     links:
       - beer-database

@@ -1,21 +1,16 @@
-FROM maven:3-alpine
+FROM adoptopenjdk/openjdk11:alpine-slim
 
-MAINTAINER XenonStack
+MAINTAINER ytvnr
 
-# Creating Application Source Code Directory
-RUN mkdir -p /usr/src/app
+ARG JAR_FILE=target/*.jar
 
-# Setting Home Directory for containers
-WORKDIR /usr/src/app
+# cd /usr/local/runme
+WORKDIR /usr/local/runme
 
-# Copying src code to Container
-COPY . /usr/src/app
+# copy target/find-links.jar /usr/local/runme/app.jar
+COPY ${JAR_FILE} app.jar
 
-# Building From Source Code
-RUN mvn clean package -DskipTests
+EXPOSE 8080
 
-# Exposing Port
-EXPOSE 8082
-
-# Running Kotlin Application
-CMD ["java", "-jar", "target/karate-beer-0.0.1-SNAPSHOT.jar"]
+# java -jar /usr/local/runme/app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
