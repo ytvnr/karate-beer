@@ -1,3 +1,5 @@
+package io.ytvnr.karatebeer;
+
 import java.time.Instant;
 
 public class TestUtils {

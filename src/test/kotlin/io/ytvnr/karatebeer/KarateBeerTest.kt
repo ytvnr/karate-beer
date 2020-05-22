@@ -6,6 +6,6 @@ class KarateBeerTest {
 
     @Karate.Test
     fun testFullPath(): Karate? {
-        return Karate.run().relativeTo(javaClass)
+        return Karate.run().tags("~@ignore").relativeTo(javaClass)
     }
 }

@@ -19,8 +19,8 @@ class BeerService(private val beerRepository: BeerRepository, private val brewer
 
     fun insert(beer: Beer): Beer {
         return beerRepository.insert(
-                // re-insert brewer from db to avoid inconsistency
-                beer.apply { this.brewer = brewerRepository.findById(beer.brewer.id).get() }
+            // re-insert brewer from db to avoid inconsistency
+            beer.apply { this.brewer = brewerRepository.findById(beer.brewer.id).get() }
         )
     }
 

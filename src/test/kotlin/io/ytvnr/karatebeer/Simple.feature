@@ -52,7 +52,8 @@ Feature: Karate Beer API - Simple get
     Given path 'beers'
     * def payload =
     """
-    { id: 42,
+    {
+      id: 42,
       name: 'Testing Beer',
       strength: 42.0,
       brewer:  #(createdTestingBrewer)
