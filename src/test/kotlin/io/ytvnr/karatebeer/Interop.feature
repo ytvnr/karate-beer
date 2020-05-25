@@ -2,7 +2,7 @@ Feature: Karate Beer API - Java Interop
 
   Background:
     * url baseUrl
-    * def TestUtils = Java.type('io.ytvnr.karatebeer.TestUtils')
+    * def TestUtils = Java.type('TestUtils')
     * def logMessage =
     """
     function(s) {

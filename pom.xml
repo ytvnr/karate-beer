@@ -89,10 +89,7 @@
                 </excludes>
             </testResource>
             <testResource>
-                <directory>src/test/java</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
+                <directory>src/test/resources</directory>
             </testResource>
         </testResources>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>

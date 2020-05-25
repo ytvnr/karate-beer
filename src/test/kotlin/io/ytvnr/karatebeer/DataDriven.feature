@@ -9,13 +9,6 @@ Feature: Karate Beer API - Data Driven Development
       karate.log('after', info.scenarioType + ':', info.scenarioName);
     }
     """
-    * def logMessage =
-    """
-    function(s) {
-      var system = Java.type('java.lang.System');
-      system.out.println(s);
-    }
-    """
 
   Scenario Outline: Use table to create <name> brewers
     Given path 'brewers'
@@ -30,9 +23,6 @@ Feature: Karate Beer API - Data Driven Development
     Given path 'brewers'
     When method get
     Then status 200
-    * call logMessage 'Test 2'
-    * call logMessage $.content
-    * call logMessage numberOfBrewers
     And match (numberOfBrewers + 1) == $.content.length()
 
     Examples:
