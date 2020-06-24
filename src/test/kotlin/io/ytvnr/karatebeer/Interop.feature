@@ -16,7 +16,8 @@ Feature: Karate Beer API - Java Interop
     * TestUtils.logTime()
     When method get
     Then status 200
-    And match $.content.length() == 5
+#    Should break parallel test because other scenarios may add data to database
+#    And match $.content.length() == 5
     * TestUtils.logTime()
     * call logMessage 'First element is: '
     * call logMessage $.content[0].name

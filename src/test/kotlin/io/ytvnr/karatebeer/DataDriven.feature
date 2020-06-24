@@ -23,7 +23,10 @@ Feature: Karate Beer API - Data Driven Development
     Given path 'brewers'
     When method get
     Then status 200
-    And match (numberOfBrewers + 1) == $.content.length()
+#    Should break parallel test because other scenarios may add data to database
+#    And match (numberOfBrewers + 1) == $.content.length()
+#   Better in parallel test
+    And match $.content[*].id contains <id>
 
     Examples:
       | id | name           | country     |
